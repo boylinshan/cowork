@@ -7,3 +7,9 @@ To Be Continue
 
 * **Daniel**
 * **Sofia**
+
+## Competition
+Daniel 1 VS Sofia 0
+
+## Commit Log
+Init Flask Project And set up auto-updating
