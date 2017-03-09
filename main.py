@@ -1,10 +1,9 @@
+# -*- coding: utf-8 -*-
 from lib.flask import Flask
+from module.entryModule.entryPage import entryPage
 
 app = Flask(__name__)
-
-@app.route('/')
-def hello():
-	return 'Greeeat!, Daniel got 1 point'
+app.register_blueprint(entryPage)
 
 if __name__ == '__main__':
-	app.run()
+	app.run(debug=True)
