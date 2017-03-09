@@ -12,4 +12,7 @@ To Be Continue
 Daniel 1 VS Sofia 0
 
 ## Commit Log
-Init Flask Project And set up auto-updating
+### 2017-03-08
+Initialize Flask project and set up auto-updating
+### 2017-03-09
+Initialize module folder for learning Blueprints of Flask. Trying to modular application.
