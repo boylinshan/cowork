@@ -41,7 +41,9 @@ class LogManager(object):
 		return logger
 
 if __name__ == '__main__':
-	pass
+	##example
+	a = LogManager().get_logger(__name__)
+	a.info(page)
 
 
 

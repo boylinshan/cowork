@@ -8,8 +8,6 @@ entryPage = Blueprint('entry_page', __name__, template_folder='templates')
 @entryPage.route('/', defaults={'page': 'index'})
 @entryPage.route('/<page>')
 def show(page):
-	a = LogManager().get_logger(__name__)
-	a.info(page)
 	try:
 		return render_template('pages/%s.html' % page)
 	except TemplateNotFound:
