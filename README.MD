@@ -9,7 +9,7 @@ To Be Continue
 * **Sofia**
 
 ## Competition
-Daniel 1 VS Sofia 0
+Daniel 2 VS Sofia 0
 
 ## Commit Log
 ### 2017-03-08
