@@ -16,3 +16,5 @@ Daniel 1 VS Sofia 0
 Initialize Flask project and set up auto-updating
 ### 2017-03-09
 Initialize module folder for learning Blueprints of Flask. Trying to modular application.
+### 2017-03-12
+Initialize logging module for outputing infomations on console
