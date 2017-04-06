@@ -5,8 +5,8 @@ To Be Continue
 
 ## Authors
 
-* **Daniel**
-* **Sofia**
+- **Daniel**
+- **Sofia**
 
 ## Competition
 Daniel 2 VS Sofia 0
@@ -18,3 +18,11 @@ Initialize Flask project and set up auto-updating
 Initialize module folder for learning Blueprints of Flask. Trying to modular application.
 ### 2017-03-12
 Initialize logging module for outputing infomations on console
+### 2017-04-06
+Updating structure of our project directories.
+- blueprint: placing blueprint we created and its related pages.
+- lib: placing lib's code we used. Now it's only contains flask.
+- scripts: placing work script.
+- static: placing static files such as css.
+- tools: common tools of whole project.
+
