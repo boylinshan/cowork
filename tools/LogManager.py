@@ -38,12 +38,20 @@ class LogManager(object):
 		:param log_level: the initial log level of return logger.
 		'''
 		logger = logging.getLogger(log_name)
+		logger.setLevel(log_level)
 		return logger
 
 if __name__ == '__main__':
 	##example
-	a = LogManager().get_logger(__name__)
-	a.info(page)
+	a = LogManager().get_logger('test')
+
+	b = logging.StreamHandler(sys.stdout)
+	b.setLevel(logging.WARNING)
+	formatter = logging.Formatter("%(asctime)s -linshan- %(name)s - %(levelname)s : %(message)s")
+	b.setFormatter(formatter)
+	a.addHandler(b)
+
+	a.warning('page')
 
 
 
