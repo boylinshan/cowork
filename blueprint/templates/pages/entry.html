@@ -1,7 +1,13 @@
 {% extends "pages/layout.html" %}
 
 {% block body %}
-	<form action="http://127.0.0.1:5000/config/run">
-		<input type="submit" value="Run">
-	</form>
+	{% for node in nodes %}
+		<p>name: {{node['name']}}</p>
+		<p>ip: {{node['ip']}}</p>
+		<p>port {{node['port']}}</p>
+		<form action="/config/run/", method='POST'>
+			<!--<input type="text" name='code'>-->
+			<input type="submit" value="Run">
+		</form>
+	{% endfor %}
 {% endblock %}
