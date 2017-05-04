@@ -74,7 +74,6 @@ host = [
     ]
 
 if __name__ == '__main__':
-    print os.getcwd()
     Globals.cluster = methods.parse_yml_config_file(name='stability_multisite')
     app.run(debug=True)
     # for h in host:
