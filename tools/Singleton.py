@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 class Singleton(type):
+	'''
+	Global single instance manager.
+	'''
 	def __init__(cls, name, bases, dict):
 		super(Singleton, cls).__init__(name, bases, dict)
 		cls._instances = {}

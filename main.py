@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 import const
+import Globals
 
 from lib.flask import Flask
 from blueprint.entryPage import entryPage
 from blueprint.testPage import testPage
 from scripts import test
-from tools.LogManager import LogManager
-from scripts.check_vm_status import get_cpu_idle
+from tools import methods
+
+import os
+#from scripts.check_vm_status import get_cpu_idle
 
 app = Flask(__name__)
 app.register_blueprint(entryPage)
@@ -70,8 +73,15 @@ host = [
         # '10.66.138.48'
     ]
 
-
 if __name__ == '__main__':
-    # app.run(debug=True)
-    for h in host:
-        print get_cpu_idle(h, 'root', 'sp1unk', 22, 'Cpu')
+    print os.getcwd()
+    Globals.cluster = methods.parse_yml_config_file(name='stability_multisite')
+    app.run(debug=True)
+    # for h in host:
+    #     print get_cpu_idle(h, 'root', 'sp1unk', 22, 'Cpu')
+    # a = methods.parse_yml_config_file(name='stability_multisite')
+    # for host in a:
+    #     for c in host['host_list']:
+    #         print c
+
+

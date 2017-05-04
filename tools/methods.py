@@ -2,21 +2,21 @@
 '''
 common methods used in the project
 '''
-
 import os
 import const
+from lib import yaml
 
-def get_all_nodes():
-	nodes = []
-	for filename in os.listdir(const.CONFIG_FILE_PATH):
-		if filename.endswith(const.FILE_EXTENSIONS):
-			if not filename.startswith('__init__'):
-				nodes.append(filename[:filename.rfind('.')])
-	return nodes
+def parse_yml_config_file(name):
+	path ='{0}/{1}.yml'.format(const.CONFIG_FILE_PATH, name)
+	host_group = {}
+	with open(path, 'r') as f:
+		config_file = yaml.load(f)
+		for name, host_list in config_file.get('instance_roles',{}).iteritems():
+			hosts = {}
+			for host in host_list:
+				hosts[host['splunkd_host']] = host
+			host_group[name]  = {'hosts': hosts, 'host_num': len(hosts)}
 
-def get_node_data(name):
-	module = __import__(const.CONFIG_FILE_PATH, globals(), locals(), [name])
-	node = getattr(module, name, object)
-	data = getattr(node, 'data', {})
-	return data
+	return host_group
+
 

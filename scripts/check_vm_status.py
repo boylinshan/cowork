@@ -47,4 +47,45 @@ def ssh_connect(host, port, username, password):
     sshClient.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     sshClient.connect(host, port, username, password)
     return sshClient
+    
+'''
+for h in host:
+    machine = MachineFactory.generate(ip)
+    Monitor().register(machine)
+
+Monitor().get_cpu_usage(ip)
+
+
+class VoidMachine(object):
+    def get_cpu_usage(self):
+        print 'error ip'
+
+class Machine(object):
+    def get_cpu_usage(self):
+        print get_cpu_idle()
+
+class MachineFactory(object):
+    __metaclass__ = Singleton
+    def __init__(self):
+        self._all_machine = {}
+
+    def generage(ip, name='root', cluster='sp1unk', port=22):
+        machine = Machine(ip, name, cluster, port)
+        slef._all_machine[ip] = machine
+        return machine
+
+class Monitor(object):
+    __metaclass__ = Singleton
+    def __init__(self):
+        self._monitor_machine = {}
+
+    def register(machine):
+        self._monitor_machine[machine.ip] = machine
+
+    def get_cpu_usage(ip):
+        machine = self._monitor_machine.get(ip, VoidMachine())
+        machine.get_cpu_usage() 
+
+'''
+
 

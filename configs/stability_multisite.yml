@@ -1,0 +1,376 @@
+deployment_type: search_head_clustering
+infrastructure_type: onprem
+
+instance_roles:
+  search_head:
+  - host:
+      ip: 10.66.136.196
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-sh1.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-sh1.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-sh1.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.138.104
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-sh2.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-sh2.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-sh2.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.136.195
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-sh3.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-sh3.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-sh3.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.137.181
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site2-sh1.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site2-sh1.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site2-sh1.sv.splunk.com:8000
+    os: linux
+
+  cluster_master:
+  - host:
+      ip: 10.66.138.111
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site-master.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site-master.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site-master.sv.splunk.com:8000
+    os: linux
+
+  deployer:
+  - host:
+      ip: 10.66.139.149
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-deployer.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-deployer.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-deployer.sv.splunk.com:8000
+    os: linux
+
+
+  indexer:
+  - host:
+      ip: 10.66.138.98
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-idx1.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-idx1.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-idx1.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.138.109
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-idx2.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-idx2.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-idx2.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.136.199
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-idx3.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-idx3.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-idx3.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.139.128
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-idx4.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-idx4.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-idx4.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.136.194
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-idx5.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-idx5.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-idx5.sv.splunk.com:8000
+    os: linux
+
+
+  - host:
+      ip: 10.66.138.105
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site2-idx1.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site2-idx1.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site2-idx1.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.137.193
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site2-idx2.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site2-idx2.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site2-idx2.sv.splunk.com:8000
+    os: linux
+
+
+  - host:
+      ip: 10.66.136.192
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site2-idx3.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site2-idx3.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site2-idx3.sv.splunk.com:8000
+    os: linux
+
+
+  license_master:
+  - host:
+      ip: 10.66.138.111
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site-master.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site-master.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site-master.sv.splunk.com:8000
+    os: linux
+
+  forwarder:
+  - host:
+      ip: 10.66.136.116
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site1-forward1.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site1-forward1.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site1-forward1.sv.splunk.com:8000
+    os: linux
+
+  - host:
+      ip: 10.66.138.110
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://systest-site2-forward1.sv.splunk.com:8089
+    splunk_home: /root/splunk
+    splunkd_host: systest-site2-forward1.sv.splunk.com
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://systest-site2-forward1.sv.splunk.com:8000
+    os: linux
+
+  deployment_server: []
+
+  spare:
+  - host:
+      ip: 10.66.138.237
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: sp1unk
+      ssh_port: 22
+      ssh_username: root
+    mgmtURL: https://10.66.138.237:8089
+    splunk_home: /root/splunk
+    splunkd_host: 10.66.138.237
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.138.237:8000
+    os: linux
