@@ -2,20 +2,16 @@
 
 {% block body %}
 	{% for host_group in cluster %}
+	<div class='left_panel'>
 		<div class="host_group">
-			<p>name: {{host_group['name']}}</p>
-			{% for host in host_group['host_list'] %}
-				<div class="host">
-					<p>splunkd_host</p>
-					<p>{{host}}</p>
-					<form action="/config/run/", method='POST'>
-						<input name='host', value={{host}} type='hidden'>
-						<input name='host_group', value={{host_group['name']}} type='hidden'>
-						<input name='type', value='Cpu', type='hidden'>
-						<input type="submit" value="Cpu">
-					</form>
-				</div>
-			{% endfor %}
+			<p>{{host_group['name']}}</p>
+			<form action="/config/run/", method='POST'>
+				<input type="submit" name='CPU' value="CPU">
+			</form>
 		</div>
+	</div>
 	{% endfor %}
+	<div class="right_panel">
+		<p>tet</p>
+	</div>
 {% endblock %}

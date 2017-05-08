@@ -7,16 +7,13 @@ from tools import methods
 
 entryPage = Blueprint('entry_page', __name__, template_folder='templates')
 
-@entryPage.route('/', defaults={'page': 'entry'})
+@entryPage.route('/', defaults={'page': 'index'})
 @entryPage.route('/<page>')
 def show(page):
 	try:
 		host_groups = []	
 		for name, host_group in Globals.cluster.iteritems():
-			host_list = []
-			for host in host_group['hosts'].keys():
-				host_list.append(host)
-			host_groups.append({'name': name, 'host_list':host_list})
+			host_groups.append({'name': name, 'hosts': host_group['hosts']})
 
 		return render_template('pages/%s.html' % page, cluster=host_groups)
 	except TemplateNotFound:
