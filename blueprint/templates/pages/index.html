@@ -104,31 +104,20 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         {% for host_group in cluster %}
           <li class="treeview">
-            <a href="#"><i class="fa fa-link"></i> <span>{{host_group['name']}}</span>
+            <a href="#"><i class="fa fa-link"></i> <span>{{ host_group['name'] }}</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
               {% for host in host_group['hosts'] %}
-                <li><a href="#">{{host}}</a></li>
+                <li><a class="host" rel={{ host_group['name'] }}>{{host}}</a></li>
               {% endfor %}
             </ul>
           </li>
         {% endfor %}
         <!-- <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li> -->
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -186,4 +175,33 @@ desired effect
      user experience. Slimscroll is required when using the
      fixed layout. -->
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+  init();
+});
+
+function init(){
+  $('.host').on('click', function (){
+    host_group = $(this).attr('rel');
+    host = $(this).text();
+    request_cpu_status(host_group, host);
+  });
+}
+
+function request_cpu_status(host_group, host){
+  $.ajax({
+        type: "POST",
+        url: '/config/',
+        async: true,
+        data: {'host':host, 'host_group':host_group},
+        success: function(data) {
+          $('.content').text(data);
+        },
+        error: function (msg) {
+
+        },
+        dataType:'text'
+    });
+}
+</script>
 </html>
