@@ -1,0 +1,374 @@
+deployment_type: search_head_clustering
+infrastructure_type: onprem
+
+instance_roles:
+  search_head:
+  - host:
+      ip: 10.66.129.75
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.75:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.75
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.75:8000
+    os: windows
+
+  - host:
+      ip: 10.66.128.122
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.128.122:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.128.122
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.128.122:8000
+    os: windows
+
+  - host:
+      ip: 10.66.129.91
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.91:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.91
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.91:8000
+    os: windows
+
+  - host:
+      ip: 10.66.137.163
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.137.163:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.137.163
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.137.163:8000
+    os: windows
+
+  cluster_master:
+  - host:
+      ip: 10.66.129.192
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.192:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.192
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.192:8000
+    os: windows
+
+  deployer:
+  - host:
+      ip: 10.66.130.2
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.130.2:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.130.2
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.130.2:8000
+    os: windows
+
+  indexer:
+  - host:
+      ip: 10.66.129.195
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.195:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.195
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.195:8000
+    os: windows
+
+  - host:
+      ip: 10.66.129.83
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.83:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.83
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.83:8000
+    os: windows
+
+  - host:
+      ip: 10.66.129.209
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.209:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.209
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.209:8000
+    os: windows
+
+  - host:
+      ip: 10.66.129.85
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.85:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.85
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.85:8000
+    os: windows
+
+  - host:
+      ip: 10.66.129.139
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.139:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.139
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.139:8000
+    os: windows
+
+  - host:
+      ip: 10.66.137.164
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.137.164:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.137.164
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.137.164:8000
+    os: windows
+
+  - host:
+      ip: 10.66.137.162
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.137.162:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.137.162
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.137.162:8000
+    os: windows
+
+  - host:
+      ip: 10.66.137.165
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.137.165:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.137.165
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site2
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.137.165:8000
+    os: windows
+
+  license_master:
+  - host:
+      ip: 10.66.129.192
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.129.192:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.129.192
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.129.192:8000
+    os: windows
+
+  forwarder:
+  - host:
+      ip: 10.66.130.3
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.130.3:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.130.3
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.130.3:8000
+    os: windows
+
+  - host:
+      ip: 10.66.138.75
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.138.75:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.138.75
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.138.75:8000
+    os: windows
+
+  deployment_server: []
+
+  spare:
+  - host:
+      ip: 10.66.138.48
+      ssh_domain: ''
+      ssh_identity: null
+      ssh_password: QWE123asd
+      ssh_port: 22
+      ssh_username: Administrator
+    mgmtURL: https://10.66.138.48:8089
+    splunk_home: c:\splunk
+    splunkd_host: 10.66.138.48
+    splunkd_port: '8089'
+    splunkd_scheme: https
+    site: site1
+    user_roles:
+      admin:
+        password: changed
+        username: admin
+    webURL: http://10.66.138.48:8000
+    os: windows
+
+
