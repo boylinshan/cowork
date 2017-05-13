@@ -18,7 +18,5 @@ app.register_blueprint(testPage)
 
 
 if __name__ == '__main__':
-    Globals.vm_info = methods.init_env()
-    print 2
-    # Globals.cluster = methods.parse_yml_config_file(name='stability_multisite')
+    # Globals.CLUSTER =
     app.run(debug=True)
