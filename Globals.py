@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
-cluster = None
 
-vm_info = {}
+
+class Cluster(object):
+    def __init__(self):
+        pass
+
+CLUSTER = None
