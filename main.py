@@ -1,21 +1,11 @@
 # -*- coding: utf-8 -*-
-import const
 import Globals
 
-from lib.flask import Flask
-from blueprint.entryPage import entryPage
-from blueprint.testPage import testPage
-from scripts import test
-from tools import methods
+from web.lib.flask import Flask
+from web.module.cluster import clusterPage
 
-import os
-
-# from scripts.check_vm_status import get_cpu_idle
-
-app = Flask(__name__)
-app.register_blueprint(entryPage)
-app.register_blueprint(testPage)
-
+app = Flask(__name__, static_url_path='/web/static', static_folder='web/static')
+app.register_blueprint(clusterPage)
 
 if __name__ == '__main__':
     # Globals.CLUSTER =
