@@ -2,19 +2,50 @@
 import paramiko
 
 class Monitor(object):
-    def __init__(self, host):
-        self._host = host
-        pass
+    def __init__(self, ip, username, password):
+        self._ip = ip
+        self._username = username
+        self._password = password
+        self.iswindows = False
+        self._sshconnection = None
+        self._port = 22
 
-    def get_cpu_idle(host, username, password, port=22, type=None, isWindows=False):
-        connect = ssh_connect(host, port, username, password)
-        cmd = "top -bi -n 2 -d 0.02"
-        if type is not None:
-            cmd += " | grep %s" % type
+    @property
+    def ip(self):
+        return self._ip
+
+    @property
+    def username(self):
+        return self._username
+
+    @property
+    def password(self):
+        return self._password
+
+    @property
+    def sshconnection(self):
+        if self._sshconnection is None:
+            self.ssh_connect()
+        return self._sshconnection
+
+    @property
+    def port(self):
+        return self._port
+
+    def ssh_connect(self):
+        sshClient = paramiko.SSHClient()
+        sshClient.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        sshClient.connect(self.ip, self.port, self.username, self.password)
+        self._sshconnection = sshClient
+
+
+    def get_cpu_idle_percent(self):
+        connect = self.sshconnection
+        cmd = "top -bi -n 2 -d 0.02 | grep Cpu"
         stdin, stdout, stderr = connect.exec_command(cmd)
         info = stdout.readlines()
 
-        if isWindows is False:
+        if self.iswindows is False:
             list = info[1].split(",")
             for li in list:
                 if "id" in li:
@@ -35,18 +66,18 @@ class Monitor(object):
             print cur_usage / num_cpu
             return int(cur_usage / num_cpu)
 
-    def release_memory(host, username, password, port=22):
-        connect = ssh_connect(host, port, username, password)
-        cmd = 'sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches"'
-        stdin, stdout, stderr = connect.exec_command(cmd)
-        info = stdout.readlines()
-
-    def check_network(host, username, password, port=22, type=None, isWindows=False):
-        connect = ssh_connect(host, port, username, password)
-        pass
-
-    def ssh_connect(host, port, username, password):
-        sshClient = paramiko.SSHClient()
-        sshClient.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        sshClient.connect(host, port, username, password)
-        return sshClient
+    # def release_memory(host, username, password, port=22):
+    #     connect = ssh_connect(host, port, username, password)
+    #     cmd = 'sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches"'
+    #     stdin, stdout, stderr = connect.exec_command(cmd)
+    #     info = stdout.readlines()
+    #
+    # def check_network(host, username, password, port=22, type=None, isWindows=False):
+    #     connect = ssh_connect(host, port, username, password)
+    #     pass
+    #
+    # def ssh_connect(host, port, username, password):
+    #     sshClient = paramiko.SSHClient()
+    #     sshClient.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    #     sshClient.connect(host, port, username, password)
+    #     return sshClient
