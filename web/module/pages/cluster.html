@@ -69,35 +69,11 @@ desired effect
       </a>
     </nav>
   </header>
+
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
-
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
-      <!-- Sidebar user panel (optional) -->
-    <!--   <div class="user-panel">
-        <div class="pull-left image">
-          <img src="{{ url_for('static', filename='dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div> -->
-
-      <!-- search form (Optional) -->
-<!--       <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form> -->
-      <!-- /.search form -->
-
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
@@ -140,31 +116,79 @@ desired effect
 
     <!-- Main content -->
     <section class="content">
-       <div class="row">
+      <div class="row">
         <div class="col-md-6">
           <!-- AREA CHART -->
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">CPU Usage</h3>
               <div class="box-tools pull-right">
-              <!--   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button> -->
-               <!--  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button> -->
               </div>
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="areaChart" style="height:250px"></canvas>
+                <canvas id="cpu" style="height:250px"></canvas>
               </div>
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
+
+        <div class="col-md-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Memory Usage</h3>
+              <div class="box-tools pull-right">
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="memory" style="height:250px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Disk Usage</h3>
+              <div class="box-tools pull-right">
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="disk" style="height:250px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Network Usage</h3>
+              <div class="box-tools pull-right">
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="network" style="height:250px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+
         <!-- /.col (RIGHT) -->
       </div>
       <!-- /.row -->
-
     </section>
     <!-- /.content -->
   </div>
@@ -191,7 +215,7 @@ desired effect
 <script src="{{ url_for('static', filename='bootstrap/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ url_for('static', filename='adminlte/app.min.js') }}"></script>
-<script src="{{ url_for('static', filename='chartjs/Chart.min.js') }}"></script>
+<script src="{{ url_for('static', filename='chartjs/chart.min.js') }}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
@@ -209,7 +233,8 @@ function init(){
   $('.node').on('click', function (){
     env = $(this).attr('rel');
     node = $(this).text();
-    request_cpu_status(env, node);
+    request_cpu_status(env, node)
+    setInterval(function(){request_cpu_status(env, node)}, 1000*60);
   });
 }
 
@@ -220,11 +245,11 @@ function request_cpu_status(env, node){
         async: true,
         data: {'env': env, 'node': node},
         success: function(data) {
-          draw_cpu_picture(data);
-          // $('.content').text(data);
-          // areaChart.data.datasets[0].data = [1,2,3,4];
-          // alert(areaChart.data.datasets[0].data[0]);
-          // areaChart.update();
+          data = JSON.parse(data);
+          for(var name in data){
+            draw_picture(name, data[name]);
+          }
+
         },
         error: function (msg) {
 
@@ -233,17 +258,14 @@ function request_cpu_status(env, node){
     });
 }
 
-function draw_cpu_picture(data){
-  init_picture(data)
-}
-
-function init_picture(data){
+function draw_picture(name, data){
     //--------------
     //- AREA CHART -
     //--------------
 
     // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+    name = '#' + name;
+    var areaChartCanvas = $(name).get(0).getContext("2d");
     // This will get the first returned node in the jQuery collection.
     var areaChart = new Chart(areaChartCanvas);
 
@@ -268,7 +290,7 @@ function init_picture(data){
           pointStrokeColor: "#c1c7d1",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [1,2,3]
+          data: data
         },
       ]
     };
